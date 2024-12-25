@@ -10,7 +10,7 @@ const PORT_ENV = process.env.PORT || 8080;
 
 app.get('/home/blog', (req, res) => {
   try {
-    res.status(200).send('Hello world');
+    res.status(200).json({ title: 'Hello world' });
   } catch (error) {
     console.log(error);
   }
@@ -30,6 +30,7 @@ const connentBDFunc = async () => {
     console.log(`Error in connect to DB -- ${error}`);
   }
 };
+
 connentBDFunc();
 
 app.post('/api/post', (req, res) => {
